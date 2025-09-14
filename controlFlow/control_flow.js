@@ -11,6 +11,8 @@ let isAuthenticated = true;
 
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 
+let userFunction = "Employee";
+
 if (userRole === "admin") {
     accessLevel = "Full access granted";
 } else if (userRole === "manager") {
@@ -47,8 +49,20 @@ switch (userType) {
         userCategory = "Unknown";
 }
 
+if (userFunction === "Employee") {
+    dietAccess = "Dietary Services";
+} else if (userFunction === "Enrolled Member"){
+    dietAccess = "Dietary Services and one dietician";    
+} else if (userFunction === "Subscriber"){
+    dietAccess = "Dietary Services";
+} else {
+    dietAccess = "You need to subscribe at least";    
+}
+
 console.log("User Message:", userMessage);
 
 console.log("User Category:", userCategory);
 
 console.log("Authentication Status:", authenticationStatus);
+
+console.log("Dietary Services:", dietAccess);
